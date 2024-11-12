@@ -39,9 +39,11 @@ fn rgb_to_grayscale(pixel: Rgba<u8>) -> u8 {
 
 fn get_ascii_chars(dense: bool) -> Vec<char> {
     if dense {
-        "@%#$0O*zcvunxr+~-:.".chars().collect()
+        "@&%QWN0gB$D8mHXKAUbGOpV4d9h6PkyqwSE2]ayjxY5Zeo[nult13If}C{iF|(7J)vTLs?z/*cr!+><;=^,':-. "
+            .chars()
+            .collect()
     } else {
-        "@%#*+=-:. ".chars().collect()
+        "@&%Q$wusv*+=^,':-. ".chars().collect()
     }
 }
 
