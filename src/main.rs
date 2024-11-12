@@ -59,7 +59,7 @@ fn resize_image(img: &DynamicImage, args: &Cli) -> (DynamicImage, u32, u32) {
         (new_width as f32 * args.aspect_ratio * (orig_height as f32 / orig_width as f32)) as u32;
 
     (
-        img.resize_exact(new_width, new_height, FilterType::Lanczos3),
+        img.resize_exact(new_width, new_height, FilterType::CatmullRom),
         new_width,
         new_height,
     )
