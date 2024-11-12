@@ -3,12 +3,17 @@
 
 Generate ASCII art from image on the command line.
 
-## Installation
+## Building
 
 1. First, you need to have Rust and Cargo installed. You can install Rust by following the instructions at [rustup.rs](https://rustup.rs).
-2. Install rascii using cargo:
+2. Clone the repository:
 ```sh
-$ cargo install rascii
+$ git clone https://github.com/derivia
+```
+3. Build rascii using cargo:
+```sh
+# inside the cloned folder
+$ cargo build
 ```
 
 ## Usage
