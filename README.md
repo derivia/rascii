@@ -14,7 +14,18 @@ $ cargo install rascii
 ## Usage
 
 ```sh
-$ rascii <image>
+Usage: rascii [OPTIONS] <IMAGE_PATH>
+
+Arguments:
+  <IMAGE_PATH>  Image to convert into ASCII art
+
+Options:
+      --width <WIDTH>                Width of the output [default: 100]
+      --aspect-ratio <ASPECT_RATIO>  Aspect ratio correction factor for output [default: 0.5]
+      --contrast <CONTRAST>          Contrast adjustment (0.5 to 2.0) [default: 1.0]
+      --invert                       Invert colors
+      --dense                        Use dense character set
+  -h, --help                         Print help
 ```
 
 ## License
