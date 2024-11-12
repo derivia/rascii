@@ -69,28 +69,22 @@ fn resize_image(img: &DynamicImage, args: &Cli) -> (DynamicImage, u32, u32) {
 
 fn img_to_ascii(img: &DynamicImage, args: &Cli) -> Vec<String> {
     let (img, width, height) = resize_image(img, args);
-
     let ascii_chars = get_ascii_chars(args.dense);
     let mut output = Vec::with_capacity(height as usize);
-
     for y in 0..height {
-        let mut line = String::with_capacity(width as usize);
+        let mut line = Vec::with_capacity(width as usize);
         for x in 0..width {
             let pixel = img.get_pixel(x, y);
             let mut gray = rgb_to_grayscale(pixel);
-
             gray = adjust_contrast(gray, args.contrast);
-
             if args.invert {
                 gray = 255 - gray;
             }
-
             let idx = ((gray as f32 / 255.0) * (ascii_chars.len() - 1) as f32).round() as usize;
-            line.push(ascii_chars[ascii_chars.len() - 1 - idx]);
+            line.push(ascii_chars[ascii_chars.len() - 1 - idx] as u8);
         }
-        output.push(line);
+        output.push(unsafe { String::from_utf8_unchecked(line) });
     }
-
     output
 }
 
